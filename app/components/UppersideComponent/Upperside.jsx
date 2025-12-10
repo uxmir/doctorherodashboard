@@ -37,15 +37,17 @@ const Upperside = () => {
               Icon={IconSearch}
             />
           </div>
-          <IconMenu
-            onClick={() => setIsResponsiveSideBar(true)}
-            className="text-gray-500 block lg:hidden"
-          />
+       <div className="flex gap-x-2 items-center">
+            <IconMenu
+              onClick={() => setIsResponsiveSideBar(true)}
+              className="text-gray-500 block lg:hidden"
+            />
+            <IconSearch
+              onClick={() => setInputModal(true)}
+              className="text-gray-500 block  xl:hidden"
+            />
+          </div>
           <div className="flex gap-x-5 items-center">
-          <IconSearch
-            onClick={() => setInputModal(true)}
-            className="text-gray-500 block xl:hidden"
-          />
             <div className=" hidden lg:flex gap-x-6">
               <Button event={() => handleDrawer(true, "rx")} Icon={IconPlus}>
                 add RX
