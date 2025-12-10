@@ -215,7 +215,7 @@ const SideBar = () => {
                 {sideBarData
                   ?.find((item) => item.id === activeParent)
                   .subItems?.map((data) => (
-                    <Link key={data.id} href={data.link}>
+                    <Link onClick={()=> setIsResponsiveSideBar(false)} key={data.id} href={data.link}>
                       <div
                         className={`px-2 py-[6px] group hover:text-white text-sm font-medium hover:bg-[#28629C] rounded-[6px] ${
                           pathName === data.link ? "bg-[#28629C]" : "bg-none"
