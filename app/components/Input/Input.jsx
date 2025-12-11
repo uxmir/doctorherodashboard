@@ -9,6 +9,8 @@ const Input = ({
   inputName,
   placeHolder,
   Icon,
+  onChange,
+  focus
 }) => {
   return (
     <>
@@ -16,7 +18,7 @@ const Input = ({
         <label htmlFor={labelFor} className="text-gray-500 ">
           {label}
         </label>
-        <div className=" pl-4 flex gap-x-1 items-center w-full border   border-gray-300 rounded-lg   capitalize text-gray-500  focus-within:border-amber-700">
+        <div className={`pl-4 flex gap-x-1 items-center w-full border   border-gray-300 rounded-lg   capitalize text-gray-500  focus-within:border-amber-700`}>
          {
             Icon&&(
             <Icon size={16}/>
@@ -26,6 +28,8 @@ const Input = ({
             type={inputType}
             name={inputName}
             placeholder={placeHolder}
+            onChange={(e)=>onChange(e.target.value)}
+            onFocus={focus}
             className="outline-none  w-full py-2 pr-4"
           />
         </div>
