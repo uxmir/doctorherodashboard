@@ -15,6 +15,8 @@ const Upperside = () => {
   const [drawerContent, setDrawerContent] = useState("");
   const [inputModal, setInputModal] = useState(false);
   const [addDropdown, setAddDropdown] = useState(false);
+  const [inputValue,setInputValue]=useState("")
+  const [inputFocus,setInputFocus]=useState(false)
   const handleDrawer = (condition, content) => {
     setDrawerOverlay(condition);
     setDrawerContainer(condition);
@@ -29,13 +31,20 @@ const Upperside = () => {
       >
         <div className="w-full flex justify-between items-center ">
           <div className=" hidden xl:block  w-[432px]">
-            <Input
+                 <Input
               labelFor={"search"}
               inputName={"search"}
               inputType={"text"}
               placeHolder={"Search By name "}
               Icon={IconSearch}
+              onChange={setInputValue}
+              focus={()=>setInputFocus(true)}
             />
+           {
+            inputValue==="" && inputFocus===true &&(
+              <p>this feild is required</p>
+            )
+           }
           </div>
        <div className="flex gap-x-2 items-center">
             <IconMenu
@@ -144,13 +153,20 @@ const Upperside = () => {
       {inputModal === true && (
         <Modal close={() => setInputModal(false)}>
           <div className=" max-[360px]:w-[250px] w-[300px] sm:w-[500px] my-6">
-            <Input
+                  <Input
               labelFor={"search"}
               inputName={"search"}
               inputType={"text"}
               placeHolder={"Search By name "}
               Icon={IconSearch}
+              onChange={setInputValue}
+              focus={()=>setInputFocus(true)}
             />
+           {
+            inputValue==="" && inputFocus===true &&(
+              <p>this feild is required</p>
+            )
+           }
           </div>
         </Modal>
       )}
